@@ -1,4 +1,4 @@
-# Project Title
+# MCQ Generator using LangChain and OpenSource LLM
 
 ## Overview
 
