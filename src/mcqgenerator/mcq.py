@@ -5,6 +5,7 @@ import traceback
 
 # from langchain.chat_models import ChatOpenAI
 from langchain_together import Together
+from src.mcqgenerator.utils import TokenUsageTracker
 
 # Load the environment file (containing the api keys)
 from dotenv import load_dotenv
@@ -13,12 +14,14 @@ load_dotenv()
 
 KEY = os.getenv("TOGETHER_API_KEY")
 
+token_tracker = TokenUsageTracker()
+callbacks = [token_tracker]
+
 llm = Together(
-    model="mistralai/Mixtral-8x22B",
+    model="NousResearch/Nous-Capybara-7B-V1p9",
     temperature=0.7,
-    max_tokens=128,
     top_k=1,
-    together_api_key= KEY
+    together_api_key= KEY,
 )
 
 from langchain.prompts import PromptTemplate
