@@ -39,3 +39,12 @@ To run the Streamlit app locally:
 ## Limitations
 
 - The project may encounter limitations related to context length when using LLM models, which could affect the quality and completeness of the generated Q&A pairs. Strategies such as chunking or summarization may be employed to address these limitations.
+
+## Deployment on AWS EC2
+
+1. Launch an EC2 instance on AWS and ensure it has the necessary permissions to access your repository.
+2. SSH into your EC2 instance: ssh -i <key-file.pem> ec2-user@
+3. Clone your repository onto the EC2 instance: git clone <repository-url>
+4. Navigate to the project directory: cd <project-directory>
+5. Install the required dependencies: pip install -r requirements.txt
+6. Run the Streamlit app in a detached screen session to keep it running even after logout: streamlit run app.py
